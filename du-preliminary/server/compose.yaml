@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: test-img:latest
+    ports:
+      - 8000:8000
+    environment:
+      DB_URL: mongodb+srv://gmnayeem533:DMqTK4NQOvWojnre@cluster0.kuli4bv.mongodb.net/docker?retryWrites=true&w=majority
+    develop:
+      watch:
+        - path: ./package.json
+          action: rebuild
+        - path: ./package-lock.json
+          action: rebuild
+        - path: .
+          target: /app
+          action: sync
+
+volumes:
+  tested:
