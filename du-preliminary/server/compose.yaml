@@ -9,7 +9,7 @@ services:
     ports:
       - 8000:8000
     environment:
-      DB_URL: mongodb+srv://gmnayeem533:DMqTK4NQOvWojnre@cluster0.kuli4bv.mongodb.net/docker?retryWrites=true&w=majority
+      DB_URL: process.env.DB_URL
     develop:
       watch:
         - path: ./package.json
